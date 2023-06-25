@@ -45,7 +45,7 @@ func (service *ChatService) FindMessages(after *uuid.UUID) ([]Message, error) {
 	service.mutex.RLock()
 	defer service.mutex.RUnlock()
 
-	messages := make([]Message, len(service.messages))
+	messages := []Message{}
 	for _, message := range service.messages {
 		messages = append(messages, message)
 	}
